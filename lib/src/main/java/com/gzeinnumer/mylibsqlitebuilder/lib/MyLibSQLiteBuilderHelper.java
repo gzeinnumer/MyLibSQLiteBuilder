@@ -6,21 +6,26 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.gzeinnumer.mylibsqlitebuilder.struct.CreateTableQuery;
+import com.gzeinnumer.mylibsqlitebuilder.struct.SQLiteDatabaseEntity;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
-class MyLibSQLiteBuilderHelper {
-    private final String TAG = "Helper";
+public class MyLibSQLiteBuilderHelper {
+    private final String TAG = "Helper_";
     private String DB_NAME;
     private int DATABASE_VERSION;
     private String DB_PATH_EXTERNAL = "";
     private String DB_PATH_BACKUP = "";
     private SQLiteDatabase myDataBase;
-    private Context context;
+    private final Context context;
 
     Class<?> aClass;
 
@@ -53,9 +58,13 @@ class MyLibSQLiteBuilderHelper {
     }
 
     public SQLiteDatabase build() throws SQLException {
+        List<String> list = getTableQueries();
+
+        Log.d(TAG, "build: " + list.toString());
+
         MyLibSQLiteDBHelper myDB;
         if (DB_PATH_EXTERNAL.length() > 0) {
-            myDB = new MyLibSQLiteDBHelper(context, DB_NAME, null, DATABASE_VERSION);
+            myDB = new MyLibSQLiteDBHelper(context, DB_NAME, null, DATABASE_VERSION, list);
             File dbFile = new File(DB_PATH_EXTERNAL);
 
             if (dbFile.exists()) {
@@ -72,18 +81,48 @@ class MyLibSQLiteBuilderHelper {
                 }
             }
         } else if (DB_PATH_BACKUP.length()>0){
-            myDB = new MyLibSQLiteDBHelper(context, DB_NAME, null, DATABASE_VERSION);
+            myDB = new MyLibSQLiteDBHelper(context, DB_NAME, null, DATABASE_VERSION, list);
             this.myDataBase = myDB.getWritableDatabase();
             backup(context);
             this.myDataBase = SQLiteDatabase.openDatabase(DB_PATH_BACKUP, null, 0);
         } else {
-            myDB = new MyLibSQLiteDBHelper(context, DB_NAME, null, DATABASE_VERSION);
+            myDB = new MyLibSQLiteDBHelper(context, DB_NAME, null, DATABASE_VERSION, list);
             this.myDataBase = myDB.getWritableDatabase();
         }
         return this.myDataBase;
     }
 
-    public boolean checkDatabase() {
+    public List<String> getTableQueries() {
+        List<String> list = new ArrayList<>();
+
+        if (aClass.isAnnotationPresent(SQLiteDatabaseEntity.class)) {
+            SQLiteDatabaseEntity sqLiteDatabaseEntity = aClass.getAnnotation(SQLiteDatabaseEntity.class);
+            if (sqLiteDatabaseEntity != null) {
+                Class[] classes = sqLiteDatabaseEntity.entities();
+                for (Class aClass : classes) {
+                    CreateTableQuery createTableQuery = (CreateTableQuery) aClass.getAnnotation(CreateTableQuery.class);
+                    if (createTableQuery != null) {
+                        if (createTableQuery.query().length() > 0) {
+                            list.add(createTableQuery.query());
+                        } else {
+                            throw new RuntimeException("Annotation CreateTableQuery Should Not Empty " + classes.getClass().getName());
+                        }
+                    } else {
+                        throw new RuntimeException("Annotation CreateTableQuery Not Found On " + classes.getClass().getName());
+                    }
+                }
+            } else {
+                logD("getTableQueries: Annotation SQLiteDatabaseEntity Not Found On " + aClass.getName());
+                return list;
+            }
+        } else {
+            logD("getTableQueries: Annotation SQLiteDatabaseEntity Not Found On " + aClass.getName());
+            return list;
+        }
+        return list;
+    }
+
+    private boolean checkDatabase() {
         boolean statusDB = false;
         SQLiteDatabase checkDB = null;
         try {
@@ -92,7 +131,7 @@ class MyLibSQLiteBuilderHelper {
                     checkDB = SQLiteDatabase.openDatabase(DB_PATH_EXTERNAL, null, 0);
                     statusDB = true;
                 } catch (Exception e) {
-
+                    e.printStackTrace();
                 }
             }
         } catch (SQLException e) {
@@ -108,7 +147,7 @@ class MyLibSQLiteBuilderHelper {
         if (new File(DB_PATH_EXTERNAL).exists()){
             InputStream myInput = this.context.getAssets().open(DB_NAME);
             File outFile = this.context.getDatabasePath(DB_PATH_EXTERNAL);
-            outFile.delete();
+            boolean isDeleted = outFile.delete();
             OutputStream myOutput = new FileOutputStream(outFile);
             byte[] buffer = new byte[1204];
             while (true) {
@@ -122,22 +161,22 @@ class MyLibSQLiteBuilderHelper {
                 }
                 myOutput.write(buffer, 0, length);
             }
-
         } else {
-            Log.e(TAG, "copyDatabase: Database file doesn't exist" );
+            Log.e(TAG, "copyDatabase: Database file doesn't exist " + DB_PATH_EXTERNAL);
         }
     }
 
+    @SuppressLint("SdCardPath")
     private void backup(Context applicationContext) {
         try {
-            String fileName = getNameFromUrl(DB_PATH_EXTERNAL);
-            String dir = DB_PATH_EXTERNAL.replace(fileName,"");
-            new File(dir).mkdirs();
-            @SuppressLint("SdCardPath") final String inFileName = "/data/data/"+applicationContext.getPackageName()+"/databases/"+ DB_NAME;
+            String fileName = getNameFromUrl(DB_PATH_BACKUP);
+            String dir = DB_PATH_BACKUP.replace(fileName, "");
+            boolean makeDir = new File(dir).mkdirs();
+            final String inFileName = "/data/data/" + applicationContext.getPackageName() + "/databases/" + DB_NAME;
             File dbFile = new File(inFileName);
             FileInputStream fis = new FileInputStream(dbFile);
 
-            OutputStream output = new FileOutputStream(DB_PATH_EXTERNAL);
+            OutputStream output = new FileOutputStream(DB_PATH_BACKUP);
 
             byte[] buffer = new byte[1024];
             int length;
@@ -156,5 +195,9 @@ class MyLibSQLiteBuilderHelper {
 
     public static String getNameFromUrl(String url) {
         return url.substring(url.lastIndexOf('/'));
+    }
+
+    private void logD(String msg) {
+        Log.e(TAG, "logD: " + msg, null);
     }
 }

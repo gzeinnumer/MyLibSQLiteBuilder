@@ -6,18 +6,17 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import java.util.ArrayList;
 import java.util.List;
 
 class MyLibSQLiteDBHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "DatabaseHelper";
 
-    private List<String> listTable = new ArrayList<>();
+    private final List<String> listTable;
 
-    public MyLibSQLiteDBHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public MyLibSQLiteDBHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version, List<String> list) {
         super(context, name, factory, version);
-        listTable = new ArrayList<>();
+        listTable = list;
     }
 
     @Override

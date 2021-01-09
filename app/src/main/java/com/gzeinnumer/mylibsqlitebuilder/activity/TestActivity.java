@@ -24,12 +24,6 @@ public class TestActivity extends AppCompatActivity {
         binding = ActivityTestBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        GblVariabel.initDb(getApplicationContext());
-
-//        DatabaseHelper databaseHelper = new DatabaseHelper(getApplicationContext());
-
-        Log.d(TAG, "onCreate: "+getApplicationContext().getFilesDir().getPath());
-
         SQLiteDatabase database = DBInstance.getDataBase(getApplicationContext());
 
         Table1 table1 = new Table1(database);
@@ -37,7 +31,6 @@ public class TestActivity extends AppCompatActivity {
         binding.btnInsert.setOnClickListener(view -> {
             boolean istrue = table1.insert();
             Log.d(TAG, "onCreate_1: " + istrue);
-//            DBInstance.backup(getApplicationContext());
         });
         binding.btnUpdate.setOnClickListener(view -> {
             boolean istrue2 = table1.update();

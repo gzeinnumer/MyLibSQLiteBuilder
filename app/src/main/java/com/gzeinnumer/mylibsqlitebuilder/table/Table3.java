@@ -9,9 +9,9 @@ import com.gzeinnumer.mylibsqlitebuilder.struct.CreateTableQuery;
 
 import java.util.List;
 
-@CreateTableQuery(query = "CREATE TABLE table2 (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, id_table1 INTEGER)")
-@SQLiteTable(tableName = "table2")
-public class Table2 extends SQLiteLIB<Table2> {
+@CreateTableQuery(query = "CREATE TABLE table3 (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, id_table1 INTEGER)")
+@SQLiteTable(tableName = "table3")
+public class Table3 extends SQLiteLIB<Table3> {
 
     @PrimaryKeyTypeData
     private int id;
@@ -22,19 +22,20 @@ public class Table2 extends SQLiteLIB<Table2> {
     @IntegerTypeData
     private int id_table1;
 
-    public Table2() {}
+    public Table3() {
+    }
 
-    public Table2(int id, String name, int id_table1) {
+    public Table3(int id, String name, int id_table1) {
         this.id = id;
         this.name = name;
         this.id_table1 = id_table1;
     }
 
-    public boolean insert(Table2 data) {
+    public boolean insert(Table3 data) {
         return false;
     }
 
-    public boolean update(Table2 data, String whereCondition) {
+    public boolean update(Table3 data, String whereCondition) {
         return false;
     }
 
@@ -46,7 +47,7 @@ public class Table2 extends SQLiteLIB<Table2> {
         return 0;
     }
 
-    public List<Table2> read() {
+    public List<Table3> read() {
         return null;
     }
 
