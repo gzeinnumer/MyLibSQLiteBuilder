@@ -94,6 +94,7 @@ public class DBInstance extends SQLiteBuilder {
 })
 public class DBInstance extends SQLiteBuilder {
 
+    private static SQLiteDatabase db;
     public static String DB_NAME = "MyLibSQLiteSimple.db";
 
     public static SQLiteDatabase getDataBase(Context context) {
@@ -217,6 +218,9 @@ public class DBInstance extends SQLiteBuilder {
     }
 }
 ```
+<p align="center">
+  <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example3.jpg" width="400"/>
+</p>
 
 ---
 
