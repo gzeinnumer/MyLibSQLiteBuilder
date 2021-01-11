@@ -105,12 +105,10 @@ SQLiteDatabase database = DBInstance.getDataBase(getApplicationContext());
 
 ### Database and table created
 <p align="center">
-  <img src="https://github.com/gzeinnumer/MyLibUtils/blob/master/preview/bg.jpg" width="400"/>
-</p>
-<p align="center">
-  <img src="https://github.com/gzeinnumer/MyLibUtils/blob/master/preview/bg.jpg" width="400"/>
+  <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example1.jpg" width="400"/>
 </p>
 
+#
 ### File Database On External
 
 If you want to **PUT** your database `file` on **External** you can use function `backUpDatabaseToExternal(DB_PATH_BC)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
@@ -131,6 +129,7 @@ File db will be create on your folder Path.
   <img src="https://github.com/gzeinnumer/MyLibUtils/blob/master/preview/bg.jpg" width="400"/>
 </p>
 
+#
 ### Load Database From External
 
 If you want to **Load** your database `file` **From External** you can use function `loadDatabaseFromExternal(DB_PATH_EXTERNAL)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
