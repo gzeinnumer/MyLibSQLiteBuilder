@@ -43,9 +43,9 @@
             <View style="@style/MyDivider.Toolbar" />
 
             <LinearLayout
-                android:gravity="center"
                 style="@style/MyParentType"
-                android:layout_marginTop="@dimen/def_margin">
+                android:layout_marginTop="@dimen/def_margin"
+                android:gravity="center">
 
                 <Button
                     android:id="@+id/btn_insert"
@@ -62,30 +62,40 @@
                     style="@style/MyButtonContained"
                     android:text="Delete" />
 
-                <Button
-                    android:id="@+id/btn_count"
-                    style="@style/MyButtonContained"
-                    android:text="Count" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                <Button
-                    android:id="@+id/btn_count2"
-                    style="@style/MyButtonContained"
-                    android:text="Count2" />
+                    <Button
+                        android:id="@+id/btn_count"
+                        style="@style/MyButtonContained"
+                        android:text="Count" />
 
-                <Button
-                    android:id="@+id/btn_count3"
-                    style="@style/MyButtonContained"
-                    android:text="Count3" />
+                    <Button
+                        android:id="@+id/btn_count2"
+                        style="@style/MyButtonContained"
+                        android:text="Count2" />
 
-                <Button
-                    android:id="@+id/btn_read"
-                    style="@style/MyButtonContained"
-                    android:text="Read" />
+                    <Button
+                        android:id="@+id/btn_count3"
+                        style="@style/MyButtonContained"
+                        android:text="Count3" />
+                </LinearLayout>
 
-                <Button
-                    android:id="@+id/btn_read2"
-                    style="@style/MyButtonContained"
-                    android:text="Read2" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btn_read"
+                        style="@style/MyButtonContained"
+                        android:text="Read" />
+
+                    <Button
+                        android:id="@+id/btn_read2"
+                        style="@style/MyButtonContained"
+                        android:text="Read2" />
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_query"
@@ -96,6 +106,35 @@
                     android:id="@+id/btn_query_result_update"
                     style="@style/MyButtonContained"
                     android:text="Query Result Update" />
+
+                <Button
+                    android:id="@+id/btn_delete_db"
+                    style="@style/MyButtonContained"
+                    android:backgroundTint="@color/red_500"
+                    android:text="Delete Database" />
+
+                <Button
+                    android:id="@+id/btn_back_up_db"
+                    style="@style/MyButtonContained"
+                    android:backgroundTint="@color/red_500"
+                    android:text="Back Up Database" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btn_db_root"
+                        style="@style/MyButtonContained"
+                        android:backgroundTint="@color/red_500"
+                        android:text="Database(Root)" />
+
+                    <Button
+                        android:id="@+id/btn_db_external"
+                        style="@style/MyButtonContained"
+                        android:backgroundTint="@color/red_500"
+                        android:text="Database(External)" />
+                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>

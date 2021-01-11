@@ -25,7 +25,7 @@ public class TestActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         SQLiteDatabase database = DBInstance.getDataBase(getApplicationContext());
-
+        DBInstance dbInstance = new DBInstance();
         Table1 table1 = new Table1(database);
 
         binding.btnInsert.setOnClickListener(view -> {
@@ -71,6 +71,22 @@ public class TestActivity extends AppCompatActivity {
         binding.btnQueryResultUpdate.setOnClickListener(view -> {
             boolean queryUpdate = table1.queryResultUpdate();
             Log.d(TAG, "onCreate_10: " + queryUpdate);
+        });
+        binding.btnDeleteDb.setOnClickListener(view -> {
+            boolean dbDeleted = dbInstance.delete();
+            Log.d(TAG, "onCreate_11: " + dbDeleted);
+        });
+        binding.btnBackUpDb.setOnClickListener(view -> {
+            boolean dbBackup = dbInstance.backUp(getApplicationContext());
+            Log.d(TAG, "onCreate_12: " + dbBackup);
+        });
+        binding.btnDbRoot.setOnClickListener(view -> {
+            boolean isExists = dbInstance.isDBExistOnRoot(getApplicationContext());
+            Log.d(TAG, "onCreate_13: " + isExists);
+        });
+        binding.btnDbExternal.setOnClickListener(view -> {
+            boolean isExists = dbInstance.isDBExist();
+            Log.d(TAG, "onCreate_14: " + isExists);
         });
     }
 }

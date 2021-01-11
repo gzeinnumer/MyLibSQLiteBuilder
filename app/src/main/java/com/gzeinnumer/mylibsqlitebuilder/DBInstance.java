@@ -27,12 +27,25 @@ public class DBInstance extends SQLiteBuilder {
                 .setDatabaseName(DB_NAME)
                 .setDatabaseVersion(1)
 //                .backUpDatabaseToExternal(DB_PATH_BC)
-                .loadDatabaseFromExternal(DB_PATH_EXTERNAL)
+//                .loadDatabaseFromExternal(DB_PATH_EXTERNAL)
                 .build();
         return db;
     }
 
     public boolean delete() {
-        return deleteDatabase(DB_PATH_EXTERNAL, DB_NAME);
+        return deleteDatabase(DB_PATH_EXTERNAL);
+    }
+
+    public boolean backUp(Context context) {
+        String BACK_UP_TO = Environment.getExternalStorageDirectory().toString() + "/MyLibSQLiteExternalBackUp";
+        return backUpDatabase(context, BACK_UP_TO, DB_NAME);
+    }
+
+    public boolean isDBExist(){
+        return isDatabaseExists(DB_PATH_EXTERNAL);
+    }
+
+    public boolean isDBExistOnRoot(Context context){
+        return isDatabaseExistOnRoot(context, DB_NAME);
     }
 }
