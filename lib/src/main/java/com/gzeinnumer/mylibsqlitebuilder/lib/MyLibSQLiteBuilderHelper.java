@@ -60,8 +60,6 @@ public class MyLibSQLiteBuilderHelper {
     public SQLiteDatabase build() throws SQLException {
         List<String> list = getTableQueries();
 
-        Log.d(TAG, "build: " + list.toString());
-
         MyLibSQLiteDBHelper myDB;
         if (DB_PATH_EXTERNAL.length() > 0) {
             myDB = new MyLibSQLiteDBHelper(context, DB_NAME, null, DATABASE_VERSION, list);

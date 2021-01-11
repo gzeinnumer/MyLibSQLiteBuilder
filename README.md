@@ -59,13 +59,15 @@ public class Table1{
 }
 ```
 
+#
 #### Make Instance Class `DBInstance` extends `SQLiteBuilder`
 ```java
 public class DBInstance extends SQLiteBuilder {
 }
 ```
 
-### Define your Table Class on `@SQLiteDatabaseEntity( entities = { ... } )`
+#
+#### Define your Table Class on `@SQLiteDatabaseEntity( entities = { ... } )`
 ```java
 @SQLiteDatabaseEntity(entities = {
         Table1.class
@@ -77,6 +79,7 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 
+#
 #### Make function instance in `DBInstance`.
 ```java
 @SQLiteDatabaseEntity(entities = {
@@ -97,12 +100,14 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 
+#
 #### Usage
 After you have defined the entity and make function `getDataBase(Context context)`, you can use the following code to create an instance of the database:
 ```java
 SQLiteDatabase database = DBInstance.getDataBase(getApplicationContext());
 ```
 
+#
 #### Database and table created
 <p align="center">
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example1.jpg"/>
@@ -153,9 +158,7 @@ File database will be **Load** from your `Database Path`.
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example3.jpg" width="400"/>
 </p>
 
-**Warning this method will ignore proses create `new Table`**
-
-
+**Warning this method will ignore `@CreateTableQuery(query = ""`**
 
 ---
 
