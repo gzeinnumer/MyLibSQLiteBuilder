@@ -7,7 +7,7 @@
 </h1>
 
 <p align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.0.0-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.0.1-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
@@ -105,7 +105,7 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 
-#### Usage
+## Usage
 After you have defined the entity and make function `getDataBase(Context context)`, you can use the following code to create an instance of the database:
 ```java
 SQLiteDatabase database = DBInstance.getDataBase(getApplicationContext());
@@ -255,7 +255,7 @@ public class DBInstance extends SQLiteBuilder {
 ---
 
 ### Version
-- **1.0.0**
+- **1.0.1**
   - First Release
 
 ---
