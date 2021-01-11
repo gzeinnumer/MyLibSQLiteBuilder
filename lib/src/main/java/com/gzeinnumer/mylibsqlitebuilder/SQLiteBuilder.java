@@ -29,6 +29,16 @@ public abstract class SQLiteBuilder {
         }
     }
 
+    protected boolean deleteDatabaseOnRoot(Context context, String DB_NAME) {
+        try {
+            final String inFileName = "/data/data/" + context.getPackageName() + "/databases/" + DB_NAME;
+            return new File(inFileName).delete();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     @SuppressLint("SdCardPath")
     protected boolean backUpDatabase(Context applicationContext, String DB_PATH, String DB_NAME) {
         try {

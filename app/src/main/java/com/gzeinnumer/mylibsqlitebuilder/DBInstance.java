@@ -36,6 +36,10 @@ public class DBInstance extends SQLiteBuilder {
         return deleteDatabase(DB_PATH_EXTERNAL);
     }
 
+    public boolean deleteRootDb(Context context) {
+        return deleteDatabaseOnRoot(context, DB_NAME);
+    }
+
     public boolean backUp(Context context) {
         String BACK_UP_TO = Environment.getExternalStorageDirectory().toString() + "/MyLibSQLiteExternalBackUp";
         return backUpDatabase(context, BACK_UP_TO, DB_NAME);

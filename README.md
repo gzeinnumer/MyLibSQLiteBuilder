@@ -158,7 +158,87 @@ File database will be **Load** from your `Database Path`.
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example3.jpg" width="400"/>
 </p>
 
-**Warning this method will ignore `@CreateTableQuery(query = ""`**
+**Warning this method will ignore `@CreateTableQuery(query = ""`)**
+
+---
+
+### Delete Database on External
+```java
+...
+public class DBInstance extends SQLiteBuilder {
+
+    ...
+
+    public boolean delete() {
+        String DB_PATH_EXTERNAL = Environment.getExternalStorageDirectory().toString() + "/MyLibSQLiteExternal/MyLibSQLiteSimple.db";
+        return deleteDatabase(DB_PATH_EXTERNAL); // return true/false
+    }
+}
+```
+
+---
+
+### Delete Database on Root
+```java
+...
+public class DBInstance extends SQLiteBuilder {
+
+    ...
+
+    public boolean deleteRootDb(Context context) {
+        String DB_NAME = "MyLibSQLiteSimple.db";
+        return deleteDatabaseOnRoot(context, DB_NAME);
+    }
+}
+```
+
+---
+
+### Backup Database From **Root** To **External**
+```java
+...
+public class DBInstance extends SQLiteBuilder {
+
+    ...
+
+    public boolean backUp(Context context) {
+        String BACK_UP_TO = Environment.getExternalStorageDirectory().toString() + "/MyLibSQLiteExternalBackUp";
+        return backUpDatabase(context, BACK_UP_TO, DB_NAME);
+    }
+}
+```
+
+---
+
+### Check File Database Exists On **External**
+```java
+...
+public class DBInstance extends SQLiteBuilder {
+
+    ...
+
+    public boolean isDBExist() {
+        String DB_PATH_EXTERNAL = Environment.getExternalStorageDirectory().toString() + "/MyLibSQLiteExternal/MyLibSQLiteSimple.db";
+        return isDatabaseExists(DB_PATH_EXTERNAL);
+    }
+}
+```
+
+---
+
+### Check File Database Exists On **Root**
+```java
+...
+public class DBInstance extends SQLiteBuilder {
+
+    ...
+
+    public boolean isDBExistOnRoot(Context context){
+        String DB_NAME = "MyLibSQLiteSimple.db";
+        return isDatabaseExistOnRoot(context, DB_NAME);
+    }
+}
+```
 
 ---
 
@@ -174,5 +254,5 @@ You can sent your constibution to `branche` `open-pull`.
 ---
 
 ```
-Copyright 2020 M. Fadli Zein
+Copyright 2021 M. Fadli Zein
 ```
