@@ -108,13 +108,13 @@ SQLiteDatabase database = DBInstance.getDataBase(getApplicationContext());
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example1.jpg"/>
 </p>
 <p align="center">
-  <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example4.jpg"/>
+  <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example4.jpg" width="400"/>
 </p>
 
 #
 ### File Database On External
 
-If you want to **PUT** your database `file` on **External** you can use function `backUpDatabaseToExternal(DB_PATH_BC)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
+If you want to **PUT** your database `file` on **External** you can add and use function `backUpDatabaseToExternal(DB_PATH_BC)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
 ```java
 public static SQLiteDatabase getDataBase(Context context) {
     String DB_PATH_BC = Environment.getExternalStorageDirectory().toString() + "/MyLibSQLiteBC/MyLibSQLiteSimple.db";
@@ -127,7 +127,7 @@ public static SQLiteDatabase getDataBase(Context context) {
     return db;
 }
 ```
-File db will be create on your folder Path.
+File Database will be create on your folder Path.
 <p align="center">
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example2.jpg" width="400"/>
 </p>
@@ -135,7 +135,7 @@ File db will be create on your folder Path.
 #
 ### Load Database From External
 
-If you want to **Load** your database `file` **From External** you can use function `loadDatabaseFromExternal(DB_PATH_EXTERNAL)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
+If you want to **Load** your database `file` **From External** you can add and use function `loadDatabaseFromExternal(DB_PATH_EXTERNAL)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
 ```java
 public static SQLiteDatabase getDataBase(Context context) {
     String DB_PATH_EXTERNAL = Environment.getExternalStorageDirectory().toString() + "/MyLibSQLiteExternal/MyLibSQLiteSimple.db";
@@ -152,6 +152,8 @@ File database will be **Load** from your `Database Path`.
 <p align="center">
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example3.jpg" width="400"/>
 </p>
+
+**Warning this method will ignore proses create `new Table`**
 
 
 
