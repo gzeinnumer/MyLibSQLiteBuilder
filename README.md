@@ -36,7 +36,17 @@ dependencies {
 ```
 
 ## Feature List
-- [x] **Convert Time Format.** example from `2020-10-14` to `14-10-2020`. ([docs](#convert-time-format))
+- [x] [Download](#download)
+- [x] [Download](#make-class-table)
+- [x] [Download](#usage)
+- [x] [Download](#database-and-table-created)
+- [x] [Download](#file-database-on-external)
+- [x] [Download](#load-database-from-external)
+- [x] [Download](#delete-database-on-external)
+- [x] [Download](#delete-database-on-root)
+- [x] [Download](#backup-database-from-root-to-external)
+- [x] [Download](#check-file-database-exists-on-external)
+- [x] [Download](#check-file-database-exists-on-root)
 
 ## Tech stack and 3rd library
 - SimpleDateFormat ([docs](https://developer.android.com/reference/java/text/SimpleDateFormat))
@@ -44,7 +54,7 @@ dependencies {
 ---
 ## USE
 
-#### Make Class Table.
+* Make Class Table.
 
 Example : Make class `Table1` and put your query **`CREATE TABLE table1 VALUE (...);`** to annotation `@CreateTableQuery(query = { ... })`.
 > **Java**
@@ -59,15 +69,13 @@ public class Table1{
 }
 ```
 
-#
-#### Make Instance Class `DBInstance` extends `SQLiteBuilder`
+* Make Instance Class `DBInstance` extends `SQLiteBuilder`
 ```java
 public class DBInstance extends SQLiteBuilder {
 }
 ```
 
-#
-#### Define your Table Class on `@SQLiteDatabaseEntity( entities = { ... } )`
+* Define your Table Class
 ```java
 @SQLiteDatabaseEntity(entities = {
         Table1.class
@@ -79,8 +87,7 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 
-#
-#### Make function instance in `DBInstance`.
+* Make function instance in `DBInstance`.
 ```java
 @SQLiteDatabaseEntity(entities = {
         Table1.class
@@ -100,15 +107,13 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 
-#
 #### Usage
 After you have defined the entity and make function `getDataBase(Context context)`, you can use the following code to create an instance of the database:
 ```java
 SQLiteDatabase database = DBInstance.getDataBase(getApplicationContext());
 ```
 
-#
-#### Database and table created
+Database and table created
 <p align="center">
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example1.jpg"/>
 </p>
