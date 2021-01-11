@@ -56,8 +56,7 @@ dependencies {
 
 * Make Class Table.
 
-Example : Make class `Table1` and put your query **`CREATE TABLE table1 VALUE (...);`** to annotation `@CreateTableQuery(query = { ... })`.
-> **Java**
+Example : Make class `Table1` and put your query **`CREATE TABLE table1(...);`** to annotation `@CreateTableQuery(query = { ... })`.
 ```java
 @CreateTableQuery(
     query = "CREATE TABLE table1 (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, rating REAL, descr TEXT, flag_active INTEGER, created_at TEXT)"
@@ -203,7 +202,7 @@ public class DBInstance extends SQLiteBuilder {
 
 ---
 
-### Backup Database From **Root** To **External**
+### Backup Database From Root To External
 ```java
 ...
 public class DBInstance extends SQLiteBuilder {
@@ -219,12 +218,12 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 <p align="center">
-  <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example3.jpg" width="400"/>
+  <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example5.jpg" width="400"/>
 </p>
 
 ---
 
-### Check File Database Exists On **External**
+### Check File Database Exists On External
 ```java
 ...
 public class DBInstance extends SQLiteBuilder {
@@ -241,7 +240,7 @@ public class DBInstance extends SQLiteBuilder {
 
 ---
 
-### Check File Database Exists On **Root**
+### Check File Database Exists On Root
 ```java
 ...
 public class DBInstance extends SQLiteBuilder {
