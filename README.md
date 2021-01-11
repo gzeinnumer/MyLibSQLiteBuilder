@@ -44,7 +44,7 @@ dependencies {
 ---
 ## USE
 
-### Make Class Table.
+#### Make Class Table.
 
 Example : Make class `Table1` and put your query **`CREATE TABLE table1 VALUE (...);`** to annotation `@CreateTableQuery(query = { ... })`.
 > **Java**
@@ -59,7 +59,7 @@ public class Table1{
 }
 ```
 
-### Make Instance Class `DBInstance` extends `SQLiteBuilder`
+#### Make Instance Class `DBInstance` extends `SQLiteBuilder`
 ```java
 public class DBInstance extends SQLiteBuilder {
 }
@@ -77,7 +77,7 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 
-### Make function instance in `DBInstance`.
+#### Make function instance in `DBInstance`.
 ```java
 @SQLiteDatabaseEntity(entities = {
         Table1.class
@@ -97,13 +97,13 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 
-### Usage
+#### Usage
 After you have defined the entity and make function `getDataBase(Context context)`, you can use the following code to create an instance of the database:
 ```java
 SQLiteDatabase database = DBInstance.getDataBase(getApplicationContext());
 ```
 
-### Database and table created
+#### Database and table created
 <p align="center">
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example1.jpg"/>
 </p>
@@ -111,7 +111,7 @@ SQLiteDatabase database = DBInstance.getDataBase(getApplicationContext());
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example4.jpg" width="400"/>
 </p>
 
-#
+---
 ### File Database On External
 
 If you want to **PUT** your database `file` on **External** you can add and use function `backUpDatabaseToExternal(DB_PATH_BC)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
@@ -132,7 +132,7 @@ File Database will be create on your folder Path.
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example2.jpg" width="400"/>
 </p>
 
-#
+---
 ### Load Database From External
 
 If you want to **Load** your database `file` **From External** you can add and use function `loadDatabaseFromExternal(DB_PATH_EXTERNAL)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
