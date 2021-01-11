@@ -105,7 +105,10 @@ SQLiteDatabase database = DBInstance.getDataBase(getApplicationContext());
 
 ### Database and table created
 <p align="center">
-  <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example1.jpg" width="400"/>
+  <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example1.jpg"/>
+</p>
+<p align="center">
+  <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example4.jpg"/>
 </p>
 
 #
@@ -126,7 +129,7 @@ public static SQLiteDatabase getDataBase(Context context) {
 ```
 File db will be create on your folder Path.
 <p align="center">
-  <img src="https://github.com/gzeinnumer/MyLibUtils/blob/master/preview/bg.jpg" width="400"/>
+  <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example2.jpg" width="400"/>
 </p>
 
 #
@@ -147,7 +150,7 @@ public static SQLiteDatabase getDataBase(Context context) {
 ```
 File database will be **Load** from your `Database Path`.
 <p align="center">
-  <img src="https://github.com/gzeinnumer/MyLibUtils/blob/master/preview/bg.jpg" width="400"/>
+  <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example3.jpg" width="400"/>
 </p>
 
 
