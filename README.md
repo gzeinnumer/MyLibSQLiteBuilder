@@ -127,7 +127,8 @@ Database and table created
 If you want to **PUT** your database `file` on **External** you can add and use function `backUpDatabaseToExternal(DB_PATH_BC)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
 ```java
 public static SQLiteDatabase getDataBase(Context context) {
-    String DB_PATH_BC = Environment.getExternalStorageDirectory().toString() + "/MyLibSQLiteBC/MyLibSQLiteSimple.db";
+    String DB_PATH_BC = Environment.getExternalStorageDirectory().toString()
+        + "/MyLibSQLiteBC/MyLibSQLiteSimple.db";
 
     db = SQLiteBuilder.builder(DBInstance.class, context)
             ...
@@ -148,7 +149,8 @@ File Database will be create on your folder Path.
 If you want to **Load** your database `file` **From External** you can add and use function `loadDatabaseFromExternal(DB_PATH_EXTERNAL)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
 ```java
 public static SQLiteDatabase getDataBase(Context context) {
-    String DB_PATH_EXTERNAL = Environment.getExternalStorageDirectory().toString() + "/MyLibSQLiteExternal/MyLibSQLiteSimple.db";
+    String DB_PATH_EXTERNAL = Environment.getExternalStorageDirectory().toString()
+        + "/MyLibSQLiteExternal/MyLibSQLiteSimple.db";
 
     db = SQLiteBuilder.builder(DBInstance.class, context)
             ...
@@ -175,7 +177,8 @@ public class DBInstance extends SQLiteBuilder {
     ...
 
     public boolean delete() {
-        String DB_PATH_EXTERNAL = Environment.getExternalStorageDirectory().toString() + "/MyLibSQLiteExternal/MyLibSQLiteSimple.db";
+        String DB_PATH_EXTERNAL = Environment.getExternalStorageDirectory().toString()
+            + "/MyLibSQLiteExternal/MyLibSQLiteSimple.db";
         return deleteDatabase(DB_PATH_EXTERNAL); // return true/false
     }
 }
@@ -207,7 +210,9 @@ public class DBInstance extends SQLiteBuilder {
     ...
 
     public boolean backUp(Context context) {
-        String BACK_UP_TO = Environment.getExternalStorageDirectory().toString() + "/MyLibSQLiteExternalBackUp";
+        String BACK_UP_TO = Environment.getExternalStorageDirectory().toString()
+            + "/MyLibSQLiteExternalBackUp";
+        String DB_NAME = "MyLibSQLiteSimple.db";
         return backUpDatabase(context, BACK_UP_TO, DB_NAME);
     }
 }
@@ -223,7 +228,8 @@ public class DBInstance extends SQLiteBuilder {
     ...
 
     public boolean isDBExist() {
-        String DB_PATH_EXTERNAL = Environment.getExternalStorageDirectory().toString() + "/MyLibSQLiteExternal/MyLibSQLiteSimple.db";
+        String DB_PATH_EXTERNAL = Environment.getExternalStorageDirectory().toString()
+            + "/MyLibSQLiteExternal/MyLibSQLiteSimple.db";
         return isDatabaseExists(DB_PATH_EXTERNAL);
     }
 }
