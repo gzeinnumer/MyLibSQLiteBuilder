@@ -36,20 +36,18 @@ dependencies {
 ```
 
 ## Feature List
-- [x] [Download](#download)
-- [x] [Download](#make-class-table)
-- [x] [Download](#usage)
-- [x] [Download](#database-and-table-created)
-- [x] [Download](#file-database-on-external)
-- [x] [Download](#load-database-from-external)
-- [x] [Download](#delete-database-on-external)
-- [x] [Download](#delete-database-on-root)
-- [x] [Download](#backup-database-from-root-to-external)
-- [x] [Download](#check-file-database-exists-on-external)
-- [x] [Download](#check-file-database-exists-on-root)
+- [x] [Make Class Table](#make-class-table)
+- [x] [Usage](#usage)
+- [x] [File Databae On External](#file-database-on-external)
+- [x] [Load Database From External](#load-database-from-external)
+- [x] [Delete Database On External](#delete-database-on-external)
+- [x] [Delete Database On Root](#delete-database-on-root)
+- [x] [Backup Database From Root To External](#backup-database-from-root-to-external)
+- [x] [Check File Database Exists On External](#check-file-database-exists-on-external)
+- [x] [Check File Database Exists On Root](#check-file-database-exists-on-root)
 
 ## Tech stack and 3rd library
-- SimpleDateFormat ([docs](https://developer.android.com/reference/java/text/SimpleDateFormat))
+- [SQLite](https://developer.android.com/training/data-storage/sqlite?hl=id)
 
 ---
 ## USE
