@@ -58,11 +58,10 @@ public class MyLibSQLiteBuilderHelper {
     }
 
     public SQLiteDatabase build() throws SQLException {
-        List<String> list = getTableQueries();
 
         MyLibSQLiteDBHelper myDB;
         if (DB_PATH_EXTERNAL.length() > 0) {
-            myDB = new MyLibSQLiteDBHelper(context, DB_NAME, null, DATABASE_VERSION, list);
+            myDB = new MyLibSQLiteDBHelper(context, DB_NAME, null, DATABASE_VERSION, new ArrayList<>());
             File dbFile = new File(DB_PATH_EXTERNAL);
 
             if (dbFile.exists()) {
@@ -79,11 +78,13 @@ public class MyLibSQLiteBuilderHelper {
                 }
             }
         } else if (DB_PATH_BACKUP.length()>0){
+            List<String> list = getTableQueries();
             myDB = new MyLibSQLiteDBHelper(context, DB_NAME, null, DATABASE_VERSION, list);
             this.myDataBase = myDB.getWritableDatabase();
             backup(context);
             this.myDataBase = SQLiteDatabase.openDatabase(DB_PATH_BACKUP, null, 0);
         } else {
+            List<String> list = getTableQueries();
             myDB = new MyLibSQLiteDBHelper(context, DB_NAME, null, DATABASE_VERSION, list);
             this.myDataBase = myDB.getWritableDatabase();
         }
