@@ -1,4 +1,4 @@
-package com.gzeinnumer.mylibsqlitebuilder.lib;
+package com.gzeinnumer.mylibsqlitebuilder.helper;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -47,7 +47,7 @@ public class MyLibSQLiteBuilderHelper {
         return this;
     }
 
-    public MyLibSQLiteBuilderHelper backUpDatabaseToExternal(String dbPath) {
+    public MyLibSQLiteBuilderHelper putDatabaseToExternal(String dbPath) {
         DB_PATH_BACKUP = dbPath;
         return this;
     }

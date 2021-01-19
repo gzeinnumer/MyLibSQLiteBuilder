@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 
-import com.gzeinnumer.mylibsqlitebuilder.lib.MyLibSQLiteBuilderHelper;
+import com.gzeinnumer.mylibsqlitebuilder.helper.MyLibSQLiteBuilderHelper;
 
 import java.io.File;
 import java.io.FileInputStream;

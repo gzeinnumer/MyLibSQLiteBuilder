@@ -1,4 +1,4 @@
-package com.gzeinnumer.mylibsqlitebuilder.lib;
+package com.gzeinnumer.mylibsqlitebuilder.helper;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

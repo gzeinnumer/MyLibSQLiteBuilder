@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/gzeinnumer/MyLibUtils/blob/master/preview/bg.jpg" width="400"/>
+  <img src="https://i.ytimg.com/vi/F9wbogYwTVM/maxresdefault.jpg"/>
 </p>
 
 <h1 align="center">
@@ -7,13 +7,13 @@
 </h1>
 
 <p align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.0.1-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.0.2-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
     <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
     <br>
-    <p>Simple function for <b>Date</b> and <b>String</b>.</p>
+    <p>Simple builder for <b>SQLite</b> .</p>
 </p>
 
 ---
@@ -38,7 +38,7 @@ dependencies {
 ## Feature List
 - [x] [Make Class Table](#make-class-table)
 - [x] [Usage](#usage)
-- [x] [File Databae On External](#file-database-on-external)
+- [x] [File Database On External](#file-database-on-external)
 - [x] [Load Database From External](#load-database-from-external)
 - [x] [Delete Database On External](#delete-database-on-external)
 - [x] [Delete Database On Root](#delete-database-on-root)
@@ -122,7 +122,7 @@ Database and table created
 ---
 ### File Database On External
 
-If you want to **PUT** your database `file` on **External** you can add and use function `backUpDatabaseToExternal(DB_PATH_BC)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
+If you want to **PUT** your database `file` on **External** you can add and use function `put        DatabaseToExternal(DB_PATH_BC)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
 ```java
 public static SQLiteDatabase getDataBase(Context context) {
     String DB_PATH_BC = Environment.getExternalStorageDirectory().toString()
@@ -130,7 +130,7 @@ public static SQLiteDatabase getDataBase(Context context) {
 
     db = SQLiteBuilder.builder(DBInstance.class, context)
             ...
-            .backUpDatabaseToExternal(DB_PATH_BC)
+            .putDatabaseToExternal(DB_PATH_BC)
             ...
             .build();
     return db;
@@ -257,6 +257,8 @@ public class DBInstance extends SQLiteBuilder {
 ### Version
 - **1.0.1**
   - First Release
+- **1.0.2**
+  - Bug Fixing
 
 ---
 

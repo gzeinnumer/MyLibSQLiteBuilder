@@ -26,7 +26,7 @@ public class DBInstance extends SQLiteBuilder {
         db = SQLiteBuilder.builder(DBInstance.class, context)
                 .setDatabaseName(DB_NAME)
                 .setDatabaseVersion(1)
-//                .backUpDatabaseToExternal(DB_PATH_BC)
+//                .putDatabaseToExternal(DB_PATH_BC)
                 .loadDatabaseFromExternal(DB_PATH_EXTERNAL)
                 .build();
         return db;
