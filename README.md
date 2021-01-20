@@ -91,15 +91,15 @@ public class DBInstance extends SQLiteBuilder {
 })
 public class DBInstance extends SQLiteBuilder {
 
-    private static SQLiteDatabase db;
+    private static SQLiteDatabase sqLiteDatabase;
     public static String DB_NAME = "MyLibSQLiteSimple.db";
 
     public static SQLiteDatabase getDataBase(Context context) {
-        db = SQLiteBuilder.builder(DBInstance.class, context)
+        sqLiteDatabase = SQLiteBuilder.builder(DBInstance.class, context)
                 .setDatabaseName(DB_NAME)
                 .setDatabaseVersion(1)
                 .build();
-        return db;
+        return sqLiteDatabase;
     }
 
 }
@@ -124,18 +124,18 @@ Database and table created on **Root Directory**
 
 If you want to **PUT** your database `file` on **External** you can add and use function `put        DatabaseToExternal(DB_PATH_BC)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
 ```java
-private static SQLiteDatabase db;
+private static SQLiteDatabase sqLiteDatabase;
 
 public static SQLiteDatabase getDataBase(Context context) {
     String DB_PATH_BC = Environment.getExternalStorageDirectory().toString()
         + "/MyLibSQLiteBC/MyLibSQLiteSimple.db";
 
-    db = SQLiteBuilder.builder(DBInstance.class, context)
+    sqLiteDatabase = SQLiteBuilder.builder(DBInstance.class, context)
             ...
             .putDatabaseToExternal(DB_PATH_BC)
             ...
             .build();
-    return db;
+    return sqLiteDatabase;
 }
 ```
 File Database will be create on your folder Path. (Not in Root anymore like [this](#usage))
@@ -148,18 +148,18 @@ File Database will be create on your folder Path. (Not in Root anymore like [thi
 
 If you want to **Load** your database `file` **From External** you can add and use function `loadDatabaseFromExternal(DB_PATH_EXTERNAL)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
 ```java
-private static SQLiteDatabase db;
+private static SQLiteDatabase sqLiteDatabase;
 
 public static SQLiteDatabase getDataBase(Context context) {
     String DB_PATH_EXTERNAL = Environment.getExternalStorageDirectory().toString()
         + "/MyLibSQLiteExternal/MyLibSQLiteSimple.db";
 
-    db = SQLiteBuilder.builder(DBInstance.class, context)
+    sqLiteDatabase = SQLiteBuilder.builder(DBInstance.class, context)
             ...
             .loadDatabaseFromExternal(DB_PATH_EXTERNAL)
             ...
             .build();
-    return db;
+    return sqLiteDatabase;
 }
 ```
 File database will be **Load** from your `Database Path`.

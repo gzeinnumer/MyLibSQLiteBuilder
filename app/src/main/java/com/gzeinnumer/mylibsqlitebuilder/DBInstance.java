@@ -17,19 +17,19 @@ import com.gzeinnumer.mylibsqlitebuilder.table.Table3;
 public class DBInstance extends SQLiteBuilder {
     private static final String TAG = "DBInstance_";
 
-    private static SQLiteDatabase db;
+    private static SQLiteDatabase sqLiteDatabase;
     public static String DB_PATH_EXTERNAL = Environment.getExternalStorageDirectory().toString() + "/MyLibSQLiteExternal/MyLibSQLiteSimple.db";
     public static String DB_PATH_BC = Environment.getExternalStorageDirectory().toString() + "/MyLibSQLiteBC/MyLibSQLiteSimple.db";
     public static String DB_NAME = "MyLibSQLiteSimple.db";
 
     public static SQLiteDatabase getDataBase(Context context) {
-        db = SQLiteBuilder.builder(DBInstance.class, context)
+        sqLiteDatabase = SQLiteBuilder.builder(DBInstance.class, context)
                 .setDatabaseName(DB_NAME)
                 .setDatabaseVersion(1)
 //                .putDatabaseToExternal(DB_PATH_BC)
                 .loadDatabaseFromExternal(DB_PATH_EXTERNAL)
                 .build();
-        return db;
+        return sqLiteDatabase;
     }
 
     public boolean delete() {
