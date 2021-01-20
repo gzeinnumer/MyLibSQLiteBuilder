@@ -111,7 +111,7 @@ After you have defined the entity and make function `getDataBase(Context context
 SQLiteDatabase database = DBInstance.getDataBase(getApplicationContext());
 ```
 
-Database and table created
+Database and table created on **Root Directory**
 <p align="center">
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example1.jpg"/>
 </p>
@@ -138,7 +138,7 @@ public static SQLiteDatabase getDataBase(Context context) {
     return db;
 }
 ```
-File Database will be create on your folder Path.
+File Database will be create on your folder Path. (Not in Root anymore like [this](#usage))
 <p align="center">
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example2.jpg" width="400"/>
 </p>
@@ -169,12 +169,13 @@ File database will be **Load** from your `Database Path`.
 
 **Warning this method will ignore `@CreateTableQuery(query = ""`)**
 
-If your table already exists in database file, or you load Database from external with function `loadDatabaseFromExternal`, you can write `Class Table` like this
+You can write `Class Table` like this
 ```java
 @CreateTableQuery
 public class Table1{
     //your code
 }
+```
 
 ---
 
