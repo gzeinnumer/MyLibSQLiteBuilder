@@ -108,7 +108,7 @@ public class DBInstance extends SQLiteBuilder {
 ## Usage
 After you have defined the entity and make function `getDataBase(Context context)`, you can use the following code to create an instance of the database:
 ```java
-SQLiteDatabase database = DBInstance.getDataBase(getApplicationContext());
+SQLiteDatabase sqLiteDatabase = DBInstance.getDataBase(getApplicationContext());
 ```
 
 Database and table created on **Root Directory**
