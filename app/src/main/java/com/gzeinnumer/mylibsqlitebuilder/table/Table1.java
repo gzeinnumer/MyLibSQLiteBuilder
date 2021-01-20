@@ -15,7 +15,7 @@ import com.gzeinnumer.mylibsqlitebuilder.struct.CreateTableQuery;
 
 import java.util.List;
 
-@CreateTableQuery
+@CreateTableQuery(query = "CREATE TABLE table1 (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, rating REAL, descr TEXT, flag_active INTEGER, created_at TEXT)")
 @SQLiteTable(tableName = "table1")
 public class Table1 extends SQLiteLIB<Table1> {
     @PrimaryKeyTypeData private int id;                 // for Primary key

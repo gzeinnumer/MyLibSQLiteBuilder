@@ -270,6 +270,10 @@ You can combine this library with [MyLibSimpleSQLite](https://github.com/gzeinnu
 
 ---
 
+Sample APP, just clone it [Java](https://github.com/gzeinnumer/MyLibSimpleSQLite) & [Kotlin](https://github.com/gzeinnumer/MyLibSimpleSQLitekt)
+
+---
+
 ### Version
 - **1.0.1**
   - First Release
