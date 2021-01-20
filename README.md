@@ -264,6 +264,8 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 
+You can combile
+
 ---
 
 ### Version
