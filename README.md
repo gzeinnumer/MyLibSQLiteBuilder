@@ -169,7 +169,7 @@ File database will be **Load** from your `Database Path`.
 
 **Warning this method will ignore `@CreateTableQuery(query = ""`)**
 
-If your table already exists, or you load Database from external with function `loadDatabaseFromExternal`, you can write `Class Table` like this
+If your table already exists in database file, or you load Database from external with function `loadDatabaseFromExternal`, you can write `Class Table` like this
 ```java
 @CreateTableQuery
 public class Table1{
