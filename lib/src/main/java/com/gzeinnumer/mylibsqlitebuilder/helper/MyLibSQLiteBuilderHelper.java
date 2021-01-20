@@ -35,8 +35,8 @@ public class MyLibSQLiteBuilderHelper {
     }
 
     public MyLibSQLiteBuilderHelper setDatabaseName(String dbName) {
-        if (!dbName.contains(".db")){
-            dbName = dbName+".db";
+        if (!dbName.contains(".db")) {
+            dbName = dbName + ".db";
         }
         DB_NAME = dbName;
         return this;
@@ -61,6 +61,7 @@ public class MyLibSQLiteBuilderHelper {
 
         MyLibSQLiteDBHelper myDB;
         if (DB_PATH_EXTERNAL.length() > 0) {
+            List<String> list = getTableEntities();
             myDB = new MyLibSQLiteDBHelper(context, DB_NAME, null, DATABASE_VERSION, new ArrayList<>());
             File dbFile = new File(DB_PATH_EXTERNAL);
 
@@ -77,7 +78,7 @@ public class MyLibSQLiteBuilderHelper {
                     }
                 }
             }
-        } else if (DB_PATH_BACKUP.length()>0){
+        } else if (DB_PATH_BACKUP.length() > 0) {
             List<String> list = getTableQueries();
             myDB = new MyLibSQLiteDBHelper(context, DB_NAME, null, DATABASE_VERSION, list);
             this.myDataBase = myDB.getWritableDatabase();
@@ -121,6 +122,30 @@ public class MyLibSQLiteBuilderHelper {
         return list;
     }
 
+    public List<String> getTableEntities() {
+        List<String> list = new ArrayList<>();
+
+        if (aClass.isAnnotationPresent(SQLiteDatabaseEntity.class)) {
+            SQLiteDatabaseEntity sqLiteDatabaseEntity = aClass.getAnnotation(SQLiteDatabaseEntity.class);
+            if (sqLiteDatabaseEntity != null) {
+                Class[] classes = sqLiteDatabaseEntity.entities();
+                for (Class aClass : classes) {
+                    CreateTableQuery createTableQuery = (CreateTableQuery) aClass.getAnnotation(CreateTableQuery.class);
+                    if (createTableQuery == null) {
+                        throw new RuntimeException("Annotation CreateTableQuery Not Found On " + classes.getClass().getName());
+                    }
+                }
+            } else {
+                logD("getTableQueries: Annotation SQLiteDatabaseEntity Not Found On " + aClass.getName());
+                return list;
+            }
+        } else {
+            logD("getTableQueries: Annotation SQLiteDatabaseEntity Not Found On " + aClass.getName());
+            return list;
+        }
+        return list;
+    }
+
     private boolean checkDatabase() {
         boolean statusDB = false;
         SQLiteDatabase checkDB = null;
@@ -143,7 +168,7 @@ public class MyLibSQLiteBuilderHelper {
     }
 
     private void copyDatabase() throws IOException {
-        if (new File(DB_PATH_EXTERNAL).exists()){
+        if (new File(DB_PATH_EXTERNAL).exists()) {
             InputStream myInput = this.context.getAssets().open(DB_NAME);
             File outFile = this.context.getDatabasePath(DB_PATH_EXTERNAL);
             boolean isDeleted = outFile.delete();

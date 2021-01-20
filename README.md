@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">
-    MyLibUtils
+    MyLibSQLiteBuilder
 </h1>
 
 <p align="center">
@@ -168,6 +168,13 @@ File database will be **Load** from your `Database Path`.
 </p>
 
 **Warning this method will ignore `@CreateTableQuery(query = ""`)**
+
+If your table already exists, or you load Database from external with function `loadDatabaseFromExternal`, you can write `Class Table` like this
+```java
+@CreateTableQuery
+public class Table1{
+    //your code
+}
 
 ---
 
