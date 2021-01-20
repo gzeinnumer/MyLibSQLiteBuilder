@@ -264,7 +264,9 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 
-You can combile
+---
+
+You can combine this library with [MyLibSimpleSQLite](https://github.com/gzeinnumer/MyLibSimpleSQLite)
 
 ---
 
