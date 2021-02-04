@@ -10,14 +10,24 @@
     <a><img src="https://img.shields.io/badge/Version-1.0.3-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
-    <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Kotlin-Suport-green?logo=kotlin&style=flat"></a>
     <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
     <br>
     <p>Simple builder for <b>SQLite</b> .</p>
 </p>
 
 ---
-## Download
+# Content List
+* [Download](#download)
+* [Feature List](#feature-list)
+* [Tech stack and 3rd library](#tech-stack-and-3rd-library)
+* [Usage](#usage)
+* [Example Code/App](#example-codeapp)
+* [Version](#version)
+* [Contribution](#contribution)
+
+---
+# Download
 Add maven `jitpack.io` and `dependencies` in `build.gradle (Project)` :
 ```gradle
 // build.gradle project
@@ -35,7 +45,8 @@ dependencies {
 }
 ```
 
-## Feature List
+---
+# Feature List
 - [x] [Make Class Table](#make-class-table)
 - [x] [Usage](#usage)
 - [x] [File Database On External](#file-database-on-external)
@@ -46,11 +57,12 @@ dependencies {
 - [x] [Check File Database Exists On External](#check-file-database-exists-on-external)
 - [x] [Check File Database Exists On Root](#check-file-database-exists-on-root)
 
-## Tech stack and 3rd library
+---
+# Tech stack and 3rd library
 - [SQLite](https://developer.android.com/training/data-storage/sqlite?hl=id)
 
 ---
-## USE
+# Usage
 
 * Make Class Table.
 
@@ -66,12 +78,14 @@ public class Table1{
 }
 ```
 
+#
 * Make Instance Class `DBInstance` extends `SQLiteBuilder`
 ```java
 public class DBInstance extends SQLiteBuilder {
 }
 ```
 
+#
 * Define your Table Class
 ```java
 @SQLiteDatabaseEntity(entities = {
@@ -84,6 +98,7 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 
+#
 * Make function instance in `DBInstance`.
 ```java
 @SQLiteDatabaseEntity(entities = {
@@ -105,8 +120,8 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 
-## Usage
-After you have defined the entity and make function `getDataBase(Context context)`, you can use the following code to create an instance of the database:
+#
+* After you have defined the entity and make function `getDataBase(Context context)`, you can use the following code to create an instance of the database:
 ```java
 SQLiteDatabase sqLiteDatabase = DBInstance.getDataBase(getApplicationContext());
 ```
@@ -119,10 +134,10 @@ Database and table created on **Root Directory**
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example4.jpg" width="400"/>
 </p>
 
----
+#
 ### File Database On External
 
-If you want to **PUT** your database `file` on **External** you can add and use function `put        DatabaseToExternal(DB_PATH_BC)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
+If you want to **PUT** your database `file` on **External** you can add and use function `putDatabaseToExternal(DB_PATH_BC)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
 ```java
 private static SQLiteDatabase sqLiteDatabase;
 
@@ -143,7 +158,7 @@ File Database will be create on your folder Path. (Not in Root anymore like [thi
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example2.jpg" width="400"/>
 </p>
 
----
+#
 ### Load Database From External
 
 If you want to **Load** your database `file` **From External** you can add and use function `loadDatabaseFromExternal(DB_PATH_EXTERNAL)` in `SQLiteBuilder.builder(DBInstance.class, context)`.
@@ -177,8 +192,7 @@ public class Table1{
 }
 ```
 
----
-
+#
 ### Delete Database on External
 ```java
 ...
@@ -194,8 +208,7 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 
----
-
+#
 ### Delete Database on Root
 ```java
 ...
@@ -210,8 +223,7 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 
----
-
+#
 ### Backup Database From Root To External
 ```java
 ...
@@ -231,8 +243,7 @@ public class DBInstance extends SQLiteBuilder {
   <img src="https://github.com/gzeinnumer/MyLibSQLiteBuilder/blob/master/preview/example5.jpg" width="400"/>
 </p>
 
----
-
+#
 ### Check File Database Exists On External
 ```java
 ...
@@ -248,8 +259,7 @@ public class DBInstance extends SQLiteBuilder {
 }
 ```
 
----
-
+#
 ### Check File Database Exists On Root
 ```java
 ...
@@ -269,12 +279,14 @@ public class DBInstance extends SQLiteBuilder {
 You can combine this library with [MyLibSimpleSQLite](https://github.com/gzeinnumer/MyLibSimpleSQLite)
 
 ---
+# Example Code/App
 
 Sample APP, just clone it [Java](https://github.com/gzeinnumer/MyLibSimpleSQLite) & [Kotlin](https://github.com/gzeinnumer/MyLibSimpleSQLitekt)
 
----
+[Sample Code And App](https://github.com/gzeinnumer/MyLibSQLiteBuilderExample)
 
-### Version
+---
+# Version
 - **1.0.1**
   - First Release
 - **1.0.2**
@@ -283,9 +295,8 @@ Sample APP, just clone it [Java](https://github.com/gzeinnumer/MyLibSimpleSQLite
   - Ready Release
 
 ---
-
-### Contribution
-You can sent your constibution to `branche` `open-pull`.
+# Contribution
+You can sent your constibution to `branch` `open-pull`.
 
 ---
 
